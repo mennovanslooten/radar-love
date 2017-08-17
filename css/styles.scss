@@ -51,13 +51,14 @@ $unit: 100px;
 }
 
 .target {
+
     position: absolute;
     left: 200px;
     top: 200px;
     width: 5px;
     height: 5px;
-    background-color: #0F0;
     border-radius: 50%;
+    background-color: #0F0;
     box-shadow: 0 0 5px 5px green;
     visibility: hidden;
     opacity: 0.1;
@@ -78,8 +79,8 @@ $unit: 100px;
 
 .target--close {
     transition: none;
-    // opacity: 1;
-    // transform: scale(5);
+    background-color: #F00;
+    box-shadow: 0 0 5px 5px #C00;
     animation: 1s fade linear infinite;
 }
 

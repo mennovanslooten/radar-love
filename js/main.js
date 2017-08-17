@@ -94,7 +94,7 @@
         function notify(beamAngle) {
             const targetAngle = getAngle();
             if (targetAngle) {
-                var deltaAngle = Math.abs(targetAngle - beamAngle);
+                const deltaAngle = Math.abs(targetAngle - beamAngle);
                 toggleTarget(deltaAngle < 0.2);
             }
         }
