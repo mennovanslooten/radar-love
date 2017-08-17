@@ -40,6 +40,21 @@ body {
   height: 500px;
   transform: translate(-250px, -250px); }
 
+.ring-5 {
+  width: 600px;
+  height: 600px;
+  transform: translate(-300px, -300px); }
+
+.ring-6 {
+  width: 700px;
+  height: 700px;
+  transform: translate(-350px, -350px); }
+
+.ring-7 {
+  width: 800px;
+  height: 800px;
+  transform: translate(-400px, -400px); }
+
 .beam {
   height: 500px;
   background-color: #0D0;

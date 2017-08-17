@@ -68,8 +68,13 @@
 
 
         function getPosition(touchX, touchY) {
-            const x = touchX;
-            const y = (touchY - centerY);
+            const offsetX = touchX - centerX;
+            const offsetY = touchY - (centerY * 1.5);
+            if (offsetX < 0 || offsetY < 0) {
+                return { x: 0, y: 0 };
+            }
+            const x = offsetX * 2;
+            const y = offsetY * 2;
             return { x, y };
         }
 
@@ -142,7 +147,8 @@
         }
     }
 
-
+    // Deal with resize events, the easy way
+    window.addEventListener("resize", location.reload.bind(location));
 
     main();
 

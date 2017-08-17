@@ -20,7 +20,7 @@ body {
 }
 
 $unit: 100px;
-@for $i from 0 through 4 {
+@for $i from 0 through 7 {
     .ring-#{$i} {
         $size: $unit * ($i + 1);
         width: $size;

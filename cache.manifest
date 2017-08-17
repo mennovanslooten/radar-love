@@ -1,9 +1,8 @@
 CACHE MANIFEST
 
-# Cache manifest version 0.0.2
+# Cache manifest version 0.0.4
 
 index.html
-
+favicon.ico
 css/styles.css
-
 js/main.js
