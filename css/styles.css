@@ -1,0 +1,93 @@
+html {
+  overflow: hidden; }
+
+body {
+  background: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden; }
+
+.ring {
+  border: 1px solid green;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+
+.ring-0 {
+  width: 100px;
+  height: 100px;
+  transform: translate(-50px, -50px); }
+
+.ring-1 {
+  width: 200px;
+  height: 200px;
+  transform: translate(-100px, -100px); }
+
+.ring-2 {
+  width: 300px;
+  height: 300px;
+  transform: translate(-150px, -150px); }
+
+.ring-3 {
+  width: 400px;
+  height: 400px;
+  transform: translate(-200px, -200px); }
+
+.ring-4 {
+  width: 500px;
+  height: 500px;
+  transform: translate(-250px, -250px); }
+
+.beam {
+  height: 500px;
+  background-color: green;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+.target {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+  width: 5px;
+  height: 5px;
+  background-color: #0F0;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 5px green;
+  visibility: hidden;
+  opacity: 0.1;
+  transition: opacity .5s linear, transform 2s linear; }
+
+.target--visible {
+  visibility: visible; }
+
+.target--active {
+  transition: none;
+  opacity: 1;
+  transform: scale(2.5); }
+
+.target--close {
+  transition: none;
+  animation: 1s fade linear infinite; }
+
+@keyframes fade {
+  from {
+    opacity: 0.5;
+    transform: scale(1.5); }
+  50% {
+    opacity: 1;
+    transform: scale(5); }
+  to {
+    opacity: 0.5;
+    transform: scale(1.5); } }
+
+/*# sourceMappingURL=styles.css.map */
