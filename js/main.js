@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-    const target = document.querySelector('.target');
     const tau = Math.PI * 2;
 
     const docHeight = document.body.clientHeight;
@@ -20,7 +19,7 @@
     RADAR BEAM
     ------------------------ */
     function initBeam(target) {
-        const el = document.querySelector('.beam');
+        const elt = document.querySelector('.beam');
         const startTime = new Date().valueOf();
 
         function getLoopPerc() {
@@ -34,7 +33,7 @@
         function rotateBeam() {
             const perc = getLoopPerc();
             const beamAngle = (tau / 100 * perc) - Math.PI;
-            el.style.transform = (`rotate(${beamAngle}rad)`);
+            elt.style.transform = (`rotate(${beamAngle}rad)`);
             target.notify(beamAngle);
             loop();
         }
@@ -52,6 +51,7 @@
     RADAR TARGET
     ------------------------ */
     function initTarget() {
+        const elt = document.querySelector('.target');
         let isVisible = false;
         const coordinates = {
             x: 0,
@@ -102,8 +102,8 @@
 
         function repositionTarget(touchX, touchY) {
             const { x, y } = getPosition(touchX, touchY);
-            target.style.left = x + 'px';
-            target.style.top = y + 'px';
+            elt.style.left = x + 'px';
+            elt.style.top = y + 'px';
             setCoordinates(x, y);
         }
 
@@ -116,21 +116,21 @@
 
         function toggleTarget(isActive) {
             const distance = getDistanceFromCenter();
-            target.classList.toggle('target--active', isActive);
-            target.classList.toggle('target--close', distance < 50);
+            elt.classList.toggle('target--active', isActive);
+            elt.classList.toggle('target--close', distance < 50);
         }
 
 
         function showTarget(e) {
             e.preventDefault();
             isVisible = true;
-            target.classList.add('target--visible');
+            elt.classList.add('target--visible');
         }
 
 
         function hideTarget() {
             isVisible = false;
-            target.classList.remove('target--visible');
+            elt.classList.remove('target--visible');
         }
 
         document.addEventListener("touchstart", showTarget, { passive: false });

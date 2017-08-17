@@ -42,7 +42,7 @@ body {
 
 .beam {
   height: 500px;
-  background-color: green;
+  background-color: #0D0;
   width: 2px;
   position: absolute;
   left: 50%;
