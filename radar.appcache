@@ -2,6 +2,6 @@ CACHE MANIFEST
 
 index.html
 
-styles.css
+css/styles.css
 
-main.js
+js/main.js
