@@ -12,7 +12,7 @@ body {
 }
 
 .ring {
-    border: 1px solid green;
+    border: 1px solid #030;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -26,6 +26,20 @@ $unit: 100px;
         width: $size;
         height: $size;
         transform: translate($size / -2, $size / -2);
+    }
+}
+
+$angle: 30deg;
+@for $i from 0 through 13 {
+    .spoke-#{$i} {
+        height: 5 * $unit;
+        background-color: #030;
+        width: 2px;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform-origin: bottom;
+        transform: rotate($angle * $i);
     }
 }
 
@@ -51,20 +65,19 @@ $unit: 100px;
 }
 
 .target {
-
     position: absolute;
-    left: 200px;
-    top: 200px;
-    width: 5px;
-    height: 5px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background-color: #0F0;
-    box-shadow: 0 0 5px 5px green;
-    visibility: hidden;
-    opacity: 0.1;
-    transition: opacity .5s linear, transform 2s linear;
+    box-shadow: 0 0 15px 15px green;
+    // visibility: hidden;
+    // opacity: 0.1;
+    // transition: opacity .5s linear, transform 2s linear;
+    animation: 3s fade linear forwards;
 }
 
+/*
 .target--visible {
     visibility: visible;
     // transition: all .5s linear;
@@ -83,19 +96,16 @@ $unit: 100px;
     box-shadow: 0 0 5px 5px #C00;
     animation: 1s fade linear infinite;
 }
+*/
 
 @keyframes fade {
     from {
-        opacity: 0.5;
-        transform: scale(1.5);
-    }
-    50% {
         opacity: 1;
-        transform: scale(5);
+        transform: scale(2);
     }
     to {
 
-        opacity: 0.5;
-        transform: scale(1.5);
+        opacity: 0;
+        transform: scale(0);
     }
 }

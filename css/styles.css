@@ -9,7 +9,7 @@ body {
   overflow: hidden; }
 
 .ring {
-  border: 1px solid green;
+  border: 1px solid #030;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -55,6 +55,146 @@ body {
   height: 800px;
   transform: translate(-400px, -400px); }
 
+.spoke-0 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(0deg); }
+
+.spoke-1 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(30deg); }
+
+.spoke-2 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(60deg); }
+
+.spoke-3 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(90deg); }
+
+.spoke-4 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(120deg); }
+
+.spoke-5 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(150deg); }
+
+.spoke-6 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(180deg); }
+
+.spoke-7 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(210deg); }
+
+.spoke-8 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(240deg); }
+
+.spoke-9 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(270deg); }
+
+.spoke-10 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(300deg); }
+
+.spoke-11 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(330deg); }
+
+.spoke-12 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(360deg); }
+
+.spoke-13 {
+  height: 500px;
+  background-color: #030;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: bottom;
+  transform: rotate(390deg); }
+
 .beam {
   height: 500px;
   background-color: #0D0;
@@ -71,40 +211,39 @@ body {
     transform: rotate(360deg); } }
 .target {
   position: absolute;
-  left: 200px;
-  top: 200px;
-  width: 5px;
-  height: 5px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: #0F0;
-  box-shadow: 0 0 5px 5px green;
-  visibility: hidden;
-  opacity: 0.1;
-  transition: opacity .5s linear, transform 2s linear; }
+  box-shadow: 0 0 15px 15px green;
+  animation: 3s fade linear forwards; }
 
+/*
 .target--visible {
-  visibility: visible; }
+    visibility: visible;
+    // transition: all .5s linear;
+}
 
 .target--active {
-  transition: none;
-  opacity: 1;
-  transform: scale(2.5); }
+    transition: none;
+    opacity: 1;
+    transform: scale(2.5);
+    // animation: 1s fade linear;
+}
 
 .target--close {
-  transition: none;
-  background-color: #F00;
-  box-shadow: 0 0 5px 5px #C00;
-  animation: 1s fade linear infinite; }
-
+    transition: none;
+    background-color: #F00;
+    box-shadow: 0 0 5px 5px #C00;
+    animation: 1s fade linear infinite;
+}
+*/
 @keyframes fade {
   from {
-    opacity: 0.5;
-    transform: scale(1.5); }
-  50% {
     opacity: 1;
-    transform: scale(5); }
+    transform: scale(2); }
   to {
-    opacity: 0.5;
-    transform: scale(1.5); } }
+    opacity: 0;
+    transform: scale(0); } }
 
 /*# sourceMappingURL=styles.css.map */
