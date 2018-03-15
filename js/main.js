@@ -54,10 +54,10 @@
             listeners.push(cb);
         }
 
-        document.addEventListener("touchstart", setPosition, { passive: false });
-        document.addEventListener("touchstart", onTouchStart, { passive: false });
-        document.addEventListener("touchend", onTouchEnd, { passive: false });
-        document.addEventListener("touchmove", setPosition, { passive: false });
+        document.addEventListener('touchstart', setPosition, { passive: false });
+        document.addEventListener('touchstart', onTouchStart, { passive: false });
+        document.addEventListener('touchend', onTouchEnd, { passive: false });
+        document.addEventListener('touchmove', setPosition, { passive: false });
 
         scheduleTick();
 
@@ -66,6 +66,17 @@
 
     function main() {
         initBeam();
+        initTutorial();
+    }
+
+
+    function initTutorial() {
+        const elt = document.querySelector('.tutorial');
+        elt.addEventListener('touchstart', hideTutorial, { passive: false });
+
+        function hideTutorial() {
+            elt.style.display = 'none';
+        }
     }
 
 
@@ -79,7 +90,7 @@
 
         function getBeamAngle(appState) {
             const tau = Math.PI * 2;
-            const framesPerLoop = loopTime * 1000 / appState.fps;
+            const framesPerLoop = Math.round(loopTime * 1000 / appState.fps);
             const currFrame = appState.frame % framesPerLoop;
             return (tau * currFrame / framesPerLoop) - Math.PI;
         }
@@ -90,7 +101,7 @@
             elt.style.transform = (`rotate(${beamAngle}rad)`);
 
             if (checkAngle(beamAngle, appState)) {
-                createTarget(appState);
+                createBlip(appState);
             }
         }
 
@@ -98,37 +109,43 @@
     }
 
 
-    function getTargetCoordinates(appState) {
+    function getBlipCoordinates(appState) {
         const offsetX = appState.touchX - centerX;
         const offsetY = appState.touchY - (centerY * 1.5);
 
         const x = Math.max(0, offsetX * 2);
         const y = Math.max(0, offsetY * 2);
+        const d = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
 
-        return { x, y };
+        return { x, y, d };
     }
 
 
     /* ------------------------
-    RADAR TARGET
+    RADAR BLIP
     ------------------------ */
     function checkAngle(beamAngle, appState) {
         if (!appState.isTouched) {
             return false;
         }
 
-        const { x, y } = getTargetCoordinates(appState);
-        const targetAngle = Math.atan((x - centerX) / (centerY - y));
-        const deltaAngle = Math.abs(targetAngle - beamAngle);
+        const { x, y } = getBlipCoordinates(appState);
+        const blipAngle = Math.atan((x - centerX) / (centerY - y));
+        const deltaAngle = Math.abs(blipAngle - beamAngle);
 
         return deltaAngle < 0.05;
     }
 
 
-    function createTarget(appState) {
-        const { x, y } = getTargetCoordinates(appState);
+    function createBlip(appState) {
+        const { x, y, d } = getBlipCoordinates(appState);
+        console.log({x, y, d});
         const elt = document.createElement('div');
-        elt.className = 'target';
+        elt.className = 'blip';
+
+        if (d < 50) {
+            elt.className += ' blip--active';
+        }
 
         elt.style.left = x + 'px';
         elt.style.top = y + 'px';
@@ -138,7 +155,7 @@
 
 
     // Deal with resize events, the easy way
-    window.addEventListener("resize", location.reload.bind(location));
+    window.addEventListener('resize', location.reload.bind(location));
 
     main();
 

@@ -1,5 +1,7 @@
 html {
-  overflow: hidden; }
+  overflow: hidden;
+  font-family: monospace;
+  color: black; }
 
 body {
   background: black;
@@ -7,6 +9,17 @@ body {
   height: 100%;
   position: absolute;
   overflow: hidden; }
+
+.tutorial {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  right: 0;
+  bottom: 0;
+  background-color: green;
+  text-align: center;
+  padding: 10px;
+  font-size: 24px; }
 
 .ring {
   border: 1px solid #030;
@@ -209,35 +222,19 @@ body {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
-.target {
+.blip {
   position: absolute;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background-color: #0F0;
-  box-shadow: 0 0 15px 15px green;
+  box-shadow: 0 0 15px 15px #060;
   animation: 3s fade linear forwards; }
 
-/*
-.target--visible {
-    visibility: visible;
-    // transition: all .5s linear;
-}
+.blip--active {
+  background-color: #F00;
+  box-shadow: 0 0 15px 15px #600; }
 
-.target--active {
-    transition: none;
-    opacity: 1;
-    transform: scale(2.5);
-    // animation: 1s fade linear;
-}
-
-.target--close {
-    transition: none;
-    background-color: #F00;
-    box-shadow: 0 0 5px 5px #C00;
-    animation: 1s fade linear infinite;
-}
-*/
 @keyframes fade {
   from {
     opacity: 1;
